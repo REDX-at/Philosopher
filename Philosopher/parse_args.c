@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 09:23:45 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/03/31 16:46:21 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/05/22 18:51:58 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,19 @@ static const char	*valid_input(const char *str)
 	const char	*number;
 	int			retu;
 
-	retu = 1;
-	len = 0;
+	(1) && (retu = 1, len = 0);
 	while (is_space(*str))
 		++str;
 	if (*str == '+')
 		++str;
 	else if (*str == '-')
 		retu = print_error("Feed me only positive results");
-	if (!is_digit(*str))
-		retu = print_error("The input is not a correct digit");
+	while (str[++len])
+	{
+		if (!is_digit(str[len]))
+			retu = print_error("The input is not a correct digit");
+	}
+	len = 0;
 	number = str;
 	while (is_digit(*str++))
 		++len;
@@ -55,6 +58,11 @@ static long	ft_atol(const char *str, int *flag)
 
 	num = 0;
 	str = valid_input(str);
+	if (!str)
+	{
+		*flag = 0;
+		return (0);
+	}
 	while (is_digit(*str))
 		num = (num * 10) + (*str++ - '0');
 	if (num > INT_MAX)
@@ -71,10 +79,6 @@ int	parse_args(t_table *table, char **av)
 	table->time_to_die = ft_atol(av[2], &flag) * 1e3;
 	table->time_to_eat = ft_atol(av[3], &flag) * 1e3;
 	table->time_to_sleep = ft_atol(av[4], &flag) * 1e3;
-	if (table->time_to_die < 6e4
-		|| table->time_to_sleep < 6e4
-		|| table->time_to_eat < 6e4)
-		flag = print_error("Use timestamps major than 60ms");
 	if (av[5])
 		table->meal_limit_number = ft_atol(av[5], &flag);
 	else

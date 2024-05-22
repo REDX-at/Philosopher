@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/12 09:23:39 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/05/22 18:36:33 by aitaouss         ###   ########.fr       */
+/*   Created: 2024/05/21 16:42:47 by aitaouss          #+#    #+#             */
+/*   Updated: 2024/05/22 18:35:20 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "Philo_bonus.h"
 
-int	main(int ac, char **av)
+int	main(int argc, char **argv)
 {
-	t_table	table;
+	t_philo	*philo;
 
-	if (5 == ac || 6 == ac)
+	if (argc < 5 | argc > 6 | parse_args(argv))
+		print_err(RED"Error: "W"Invalid arguments\n");
+	philo = init_table(argc, argv);
+	if (!philo)
 	{
-		if (!parse_args(&table, av))
-			return (0);
-		if (!init_data(&table))
-		{
-			clear_process(&table);
-			return (0);
-		}
-		dinner_start(&table);
-		clear_process(&table);
+		print_err(RED"Error: "W"Failed to init table\n");
+		return (1);
 	}
-	else
-	{
-		if (!print_error("Wrong input"RESET))
-			return (0);
-	}
-	return (1);
+	init_process(philo);
+	return (0);
 }
