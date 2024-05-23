@@ -1,6 +1,6 @@
 NAME = philo
 CC = cc
-CFLAGS = -g -Wall -Wextra
+CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 OBJS_DIR = objs/
 
