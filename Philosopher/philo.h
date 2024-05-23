@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 09:23:47 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/03/31 16:46:03 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/05/23 11:15:17 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ void	print_state(t_philo_status status, t_philo *philo);
 void	wait_all_threads(t_table *table);
 void	increase_long(t_mtx *mutex, long *result);
 bool	all_threads_running(t_mtx *mutex, long *threads, long philo_nbr);
-void	thinking(t_philo *philo, bool pre_simulation);
+void	thinking(t_philo *philo);
 void	de_synchronize_philos(t_philo *philo);
 void	*watch_dinner(void *data);
 

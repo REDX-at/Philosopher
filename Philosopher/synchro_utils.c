@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 09:23:52 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/03/31 16:46:03 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/05/23 11:18:39 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,6 @@ bool	all_threads_running(t_mtx *mutex, long *threads,
 
 void	de_synchronize_philos(t_philo *philo)
 {
-	if (philo->table->philo_nbr % 2 == 0)
-	{
-		if (philo->id % 2 == 0)
-			ft_usleep(3e4, philo->table);
-	}
-	else
-	{
-		if (philo->id % 2)
-			thinking(philo, true);
-	}
+	if (philo->id % 2 == 0)
+		ft_usleep(3e4, philo->table);
 }

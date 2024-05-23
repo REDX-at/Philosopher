@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 09:23:45 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/05/22 18:51:58 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/05/22 23:04:06 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static const char	*valid_input(const char *str)
 	const char	*number;
 	int			retu;
 
-	(1) && (retu = 1, len = 0);
+	(1) && (retu = 1, len = -1);
 	while (is_space(*str))
 		++str;
 	if (*str == '+')

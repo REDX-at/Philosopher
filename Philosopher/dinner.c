@@ -6,20 +6,19 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 09:23:31 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/05/22 18:39:36 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/05/23 11:36:49 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	thinking(t_philo *philo, bool pre_simulation)
+void	thinking(t_philo *philo)
 {
 	long	t_eat;
 	long	t_sleep;
 	long	t_think;
 
-	if (!pre_simulation)
-		print_state(THINKING, philo);
+	print_state(THINKING, philo);
 	if (philo->table->philo_nbr % 2 == 0)
 		return ;
 	t_eat = philo->table->time_to_eat;
@@ -27,7 +26,8 @@ void	thinking(t_philo *philo, bool pre_simulation)
 	t_think = (t_eat * 2) - t_sleep;
 	if (t_think < 0)
 		t_think = 0;
-	ft_usleep(t_think * 0.42, philo->table);
+	t_think = t_think * 0.42;
+	ft_usleep(t_think, philo->table);
 }
 
 void	*one_philo(void *arg)
@@ -80,7 +80,7 @@ static void	*dinner_simulation(void *data)
 		eat(philo);
 		print_state(SLEEPING, philo);
 		ft_usleep(philo->table->time_to_sleep, philo->table);
-		thinking(philo, false);
+		thinking(philo);
 	}
 	return (NULL);
 }
