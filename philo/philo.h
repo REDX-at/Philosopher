@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 09:23:47 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/05/23 11:15:17 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/05/27 22:50:03 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ bool	get_bool(t_mtx *mutex, bool *result);
 long	get_long(t_mtx *mutex, long *result);
 void	set_long(t_mtx *mutex, long *dest, long result);
 bool	mission_complete(t_table *table);
-time_t	gettime(int time_code);
+long	gettime(int time_code);
 void	ft_usleep(long usec, t_table *table);
 void	clear_process(t_table *table);
 int		print_error(const char *error);

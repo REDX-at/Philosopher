@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 09:23:31 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/05/23 11:36:49 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/05/26 23:57:41 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ static void	eat(t_philo *philo)
 	set_long(&philo->philo_mutex, &philo->last_meal, gettime(MILLISECOND));
 	philo->count_meals++;
 	print_state(EATING, philo);
-	ft_usleep(philo->table->time_to_eat, philo->table);
 	if (philo->table->meal_limit_number > 0
 		&& philo->count_meals == philo->table->meal_limit_number)
 		set_bool(&philo->philo_mutex, &philo->full, true);
+	ft_usleep(philo->table->time_to_eat, philo->table);
 	function_mutex(&philo->left_fork->fork, UNLOCK);
 	function_mutex(&philo->right_fork->fork, UNLOCK);
 }

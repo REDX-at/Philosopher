@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 09:23:41 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/03/31 16:50:11 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/05/26 23:56:47 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	*watch_dinner(void *data)
 			{
 				set_bool(&table->datamutex, &table->end_simulation, true);
 				print_state(DIED, table->philos + i);
+				return (NULL);
 			}
 			i++;
 		}
