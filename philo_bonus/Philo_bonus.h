@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 18:03:44 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/05/23 11:36:22 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/05/30 20:41:07 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,12 @@ typedef struct s_philo
 	long			philo_id;
 	sem_t			*print;
 	sem_t			*forks;
+	sem_t			*lock;
 	int				nb_philo;
 	long			time_to_die;
 	long			time_to_eat;
 	long			time_to_sleep;
-	int				*id;
+	pid_t			*id;
 	long			counter;
 	long			last_eat;
 	long			stop;

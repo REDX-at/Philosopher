@@ -6,7 +6,7 @@
 /*   By: aitaouss <aitaouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 18:05:47 by aitaouss          #+#    #+#             */
-/*   Updated: 2024/05/22 12:32:07 by aitaouss         ###   ########.fr       */
+/*   Updated: 2024/05/30 20:21:40 by aitaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,11 @@ int	init_sema(t_philo *philo)
 {
 	sem_unlink("print");
 	sem_unlink("forks");
+	sem_unlink("lock");
+	philo->lock = sem_open("lock", O_CREAT, 0644, 1);
 	philo->print = sem_open("print", O_CREAT, 0644, 1);
 	philo->forks = sem_open("forks", O_CREAT, 0644, philo->nb_forks);
-	if (philo->print <= 0 || philo->forks <= 0)
+	if (philo->print <= 0 || philo->forks <= 0 || philo->lock <= 0)
 	{
 		print_err(RED"Error: "W"Failed to create semaphore\n");
 		return (1);
