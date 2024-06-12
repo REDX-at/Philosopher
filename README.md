@@ -2,7 +2,7 @@
 
 The Dining Philosophers Problem is a classic synchronization problem in computer science, illustrating the challenges of allocating shared resources without causing deadlock or starvation. This project provides an implementation of the Dining Philosophers Problem to demonstrate and solve these issues using various synchronization techniques.
 
-![Dining Philosophers](https://sphof.readthedocs.io/_images/philtable.png)
+  ![Dining Philosophers](https://sphof.readthedocs.io/_images/philtable.png)
 
 ## Introduction
 
